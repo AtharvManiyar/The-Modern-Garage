@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import AboutHero from '@/components/AboutHero';
-import MissionVision from '@/components/MissionVision';
-import ValuesSection from '@/components/ValuesSection';
-import StoryTimeline from '@/components/StoryTimeline';
-import AboutCTA from '@/components/AboutCTA';
+import React, { useEffect } from "react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import AboutHero from "@/components/AboutHero";
+import MissionVision from "@/components/MissionVision";
+import ValuesSection from "@/components/ValuesSection";
+import StoryTimeline from "@/components/StoryTimeline";
+import AboutCTA from "@/components/AboutCTA";
 
 const About = () => {
   // Initialize intersection observer for scroll animations
@@ -21,10 +21,10 @@ const About = () => {
       },
       { threshold: 0.1 }
     );
-    
+
     const elements = document.querySelectorAll(".animate-on-scroll");
     elements.forEach((el) => observer.observe(el));
-    
+
     return () => {
       elements.forEach((el) => observer.unobserve(el));
     };
@@ -33,7 +33,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      
+
       <main className="space-y-0">
         <AboutHero />
         <MissionVision />
@@ -41,7 +41,7 @@ const About = () => {
         <StoryTimeline />
         <AboutCTA />
       </main>
-      
+
       <Footer />
     </div>
   );

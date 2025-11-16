@@ -12,7 +12,7 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-    
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -20,20 +20,20 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
     // Prevent background scrolling when menu is open
-    document.body.style.overflow = !isMenuOpen ? 'hidden' : '';
+    document.body.style.overflow = !isMenuOpen ? "hidden" : "";
   };
 
   const closeMenu = () => {
     setIsMenuOpen(false);
-    document.body.style.overflow = '';
+    document.body.style.overflow = "";
   };
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
-    
+
     // Close mobile menu if open
     if (isMenuOpen) {
       closeMenu();
@@ -44,14 +44,14 @@ const Navbar = () => {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 py-2 sm:py-3 md:py-4 transition-all duration-300",
-        isScrolled 
-          ? "bg-white/80 backdrop-blur-md shadow-sm" 
-          : "bg-transparent"
+        isScrolled
+          ? "bg-white/80 backdrop-blur-md shadow-sm"
+          : "bg-white/80 backdrop-blur-md"
       )}
     >
       <div className="container flex items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a 
-          href="#" 
+        <a
+          href="#"
           className="flex items-center space-x-2"
           onClick={(e) => {
             e.preventDefault();
@@ -59,11 +59,7 @@ const Navbar = () => {
           }}
           aria-label="Pulse Robot"
         >
-          <img 
-            src="/logo.svg" 
-            alt="Pulse Robot Logo" 
-            className="h-7 sm:h-8" 
-          />
+          <img src="/logo.svg" alt="Pulse Robot Logo" className="h-7 sm:h-8" />
         </a>
 
         {/* Desktop Navigation */}
@@ -71,19 +67,22 @@ const Navbar = () => {
           <Link to="/" className="nav-link">
             Home
           </Link>
-          <Link to="/about" className="nav-link">About</Link>
-          <Link to="/contact" className="nav-link">Contact</Link>
-          <Link to="/chat" className="nav-link">AI Chat</Link>
-          <Link to="/gallery" className="nav-link">Gallery</Link>
-          <Link to="/email" className="nav-link">Email</Link>
-          <Link to="/admin" className="nav-link text-primary font-semibold">
-            Admin
+          <Link to="/about" className="nav-link">
+            About
           </Link>
-          <Link to="/display" className="nav-link text-primary font-semibold">
-            Display
+          <Link to="/contact" className="nav-link">
+            Contact
           </Link>
+          <Link to="/chat" className="nav-link">
+            Image Generation
+          </Link>
+          {/* <Link to="/gallery" className="nav-link">
+            Gallery
+          </Link> */}
           <Link to="/login">
-            <Button variant="ghost" size="sm">Login</Button>
+            <Button variant="ghost" size="sm">
+              Login
+            </Button>
           </Link>
           <Link to="/signup">
             <Button size="sm">Sign Up</Button>
@@ -91,8 +90,8 @@ const Navbar = () => {
         </nav>
 
         {/* Mobile menu button - increased touch target */}
-        <button 
-          className="md:hidden text-gray-700 p-3 focus:outline-none" 
+        <button
+          className="md:hidden text-gray-700 p-3 focus:outline-none"
           onClick={toggleMenu}
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         >
@@ -101,70 +100,76 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Navigation - improved for better touch experience */}
-      <div className={cn(
-        "fixed inset-0 z-40 bg-white flex flex-col pt-16 px-6 md:hidden transition-all duration-300 ease-in-out overflow-y-auto",
-        isMenuOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none"
-      )}>
+      <div
+        className={cn(
+          "fixed inset-0 z-40 bg-white flex flex-col pt-16 px-6 md:hidden transition-all duration-300 ease-in-out overflow-y-auto",
+          isMenuOpen
+            ? "opacity-100 translate-x-0"
+            : "opacity-0 translate-x-full pointer-events-none"
+        )}
+      >
         <nav className="flex flex-col space-y-6 items-center mt-8 pb-8">
-          <Link 
-            to="/" 
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
+          <Link
+            to="/"
+            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
             onClick={closeMenu}
           >
             Home
           </Link>
-          <Link 
-            to="/about" 
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
+          <Link
+            to="/about"
+            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
             onClick={closeMenu}
           >
             About
           </Link>
-          <Link 
-            to="/contact" 
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
+          <Link
+            to="/contact"
+            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
             onClick={closeMenu}
           >
             Contact
           </Link>
-          <Link 
-            to="/chat" 
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
+          <Link
+            to="/chat"
+            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
             onClick={closeMenu}
           >
             AI Chat
           </Link>
-          <Link 
-            to="/gallery" 
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
+          {/* <Link
+            to="/gallery"
+            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
             onClick={closeMenu}
           >
             Gallery
-          </Link>
-          <Link 
-            to="/email" 
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100" 
+          </Link> */}
+          <Link
+            to="/email"
+            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
             onClick={closeMenu}
           >
             Email
           </Link>
-          <Link 
-            to="/admin" 
-            className="text-xl font-bold py-3 px-6 w-full text-center rounded-lg hover:bg-primary/10 text-primary" 
+          <Link
+            to="/admin"
+            className="text-xl font-bold py-3 px-6 w-full text-center rounded-lg hover:bg-primary/10 text-primary"
             onClick={closeMenu}
           >
             🎯 Admin Dashboard
           </Link>
-          <Link 
-            to="/display" 
-            className="text-xl font-bold py-3 px-6 w-full text-center rounded-lg hover:bg-primary/10 text-primary" 
+          <Link
+            to="/display"
+            className="text-xl font-bold py-3 px-6 w-full text-center rounded-lg hover:bg-primary/10 text-primary"
             onClick={closeMenu}
           >
             📊 Data Display
           </Link>
           <div className="flex flex-col space-y-4 w-full mt-4">
             <Link to="/login" onClick={closeMenu}>
-              <Button variant="ghost" className="w-full">Login</Button>
+              <Button variant="ghost" className="w-full">
+                Login
+              </Button>
             </Link>
             <Link to="/signup" onClick={closeMenu}>
               <Button className="w-full">Sign Up</Button>
