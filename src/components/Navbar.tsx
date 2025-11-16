@@ -19,7 +19,6 @@ const Navbar = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-    // Prevent background scrolling when menu is open
     document.body.style.overflow = !isMenuOpen ? "hidden" : "";
   };
 
@@ -34,11 +33,13 @@ const Navbar = () => {
       behavior: "smooth",
     });
 
-    // Close mobile menu if open
     if (isMenuOpen) {
       closeMenu();
     }
   };
+
+  // Disable redirect for all pages except Home
+  const disable = (e) => e.preventDefault();
 
   return (
     <header
@@ -59,7 +60,7 @@ const Navbar = () => {
           }}
           aria-label="Pulse Robot"
         >
-          <img src="/logo.svg" alt="Pulse Robot Logo" className="h-7 sm:h-8" />
+          <img src="/logo.jpg" alt="Pulse Robot Logo" className="h-7 sm:h-10" />
         </a>
 
         {/* Desktop Navigation */}
@@ -67,29 +68,31 @@ const Navbar = () => {
           <Link to="/" className="nav-link">
             Home
           </Link>
-          <Link to="/about" className="nav-link">
+
+          <Link to="/about" className="nav-link" onClick={disable}>
             About
           </Link>
-          <Link to="/contact" className="nav-link">
+
+          <Link to="/contact" className="nav-link" onClick={disable}>
             Contact
           </Link>
-          <Link to="/chat" className="nav-link">
+
+          <Link to="/chat" className="nav-link" onClick={disable}>
             Image Generation
           </Link>
-          {/* <Link to="/gallery" className="nav-link">
-            Gallery
-          </Link> */}
-          <Link to="/login">
+
+          <Link to="/login" onClick={disable}>
             <Button variant="ghost" size="sm">
               Login
             </Button>
           </Link>
-          <Link to="/signup">
+
+          <Link to="/signup" onClick={disable}>
             <Button size="sm">Sign Up</Button>
           </Link>
         </nav>
 
-        {/* Mobile menu button - increased touch target */}
+        {/* Mobile Menu Button */}
         <button
           className="md:hidden text-gray-700 p-3 focus:outline-none"
           onClick={toggleMenu}
@@ -99,7 +102,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Navigation - improved for better touch experience */}
+      {/* Mobile Navigation */}
       <div
         className={cn(
           "fixed inset-0 z-40 bg-white flex flex-col pt-16 px-6 md:hidden transition-all duration-300 ease-in-out overflow-y-auto",
@@ -116,62 +119,63 @@ const Navbar = () => {
           >
             Home
           </Link>
+
           <Link
             to="/about"
             className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
-            onClick={closeMenu}
+            onClick={disable}
           >
             About
           </Link>
+
           <Link
             to="/contact"
             className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
-            onClick={closeMenu}
+            onClick={disable}
           >
             Contact
           </Link>
+
           <Link
             to="/chat"
             className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
-            onClick={closeMenu}
+            onClick={disable}
           >
             AI Chat
           </Link>
-          {/* <Link
-            to="/gallery"
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
-            onClick={closeMenu}
-          >
-            Gallery
-          </Link> */}
+
           <Link
             to="/email"
             className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
-            onClick={closeMenu}
+            onClick={disable}
           >
             Email
           </Link>
+
           <Link
             to="/admin"
             className="text-xl font-bold py-3 px-6 w-full text-center rounded-lg hover:bg-primary/10 text-primary"
-            onClick={closeMenu}
+            onClick={disable}
           >
             🎯 Admin Dashboard
           </Link>
+
           <Link
             to="/display"
             className="text-xl font-bold py-3 px-6 w-full text-center rounded-lg hover:bg-primary/10 text-primary"
-            onClick={closeMenu}
+            onClick={disable}
           >
             📊 Data Display
           </Link>
+
           <div className="flex flex-col space-y-4 w-full mt-4">
-            <Link to="/login" onClick={closeMenu}>
+            <Link to="/login" onClick={disable}>
               <Button variant="ghost" className="w-full">
                 Login
               </Button>
             </Link>
-            <Link to="/signup" onClick={closeMenu}>
+
+            <Link to="/signup" onClick={disable}>
               <Button className="w-full">Sign Up</Button>
             </Link>
           </div>
