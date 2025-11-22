@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import AboutHero from "./AboutHero";
 import AboutCTA from "./AboutCTA";
 import ContactHero from "./ContactHero";
+import Chat from "@/pages/Chat";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -80,7 +81,7 @@ const Navbar = () => {
             Contact
           </Link>
 
-          <Link to="/chat" className="nav-link" onClick={disable}>
+          <Link to="/chat" className="nav-link" onClick={Chat}>
             Image Generation
           </Link>
 
