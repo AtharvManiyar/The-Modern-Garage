@@ -71,24 +71,24 @@ const FAQSection = () => {
   
   const faqs = [
     {
-      question: "How quickly can I expect a response?",
-      answer: "We typically respond to all inquiries within 24 hours during business days. For urgent matters, please call us directly at +1 (555) 123-4567."
+      question: "How does the AI visualization actually work?",
+      answer: "Upload a photo of your bike, select the parts you want to add or modify, and our AI generates a realistic preview showing exactly how the modifications will look. The AI takes into account lighting, angles, and proportions to create accurate visualizations in seconds."
     },
     {
-      question: "Can I schedule a demo of Atlas?",
-      answer: "Absolutely! We offer both virtual and in-person demos. Fill out the contact form above and select 'Requesting a demo' to schedule a session with our team."
+      question: "Can I find parts for older or rare bike models?",
+      answer: "Yes! Our marketplace includes over 10,000 verified parts for both modern and vintage bikes. You can search by make, model, and year. If a part isn't available, our AI chatbot can suggest compatible alternatives or connect you with specialized sellers."
     },
     {
-      question: "Do you offer technical support?",
-      answer: "Yes, we provide comprehensive technical support for all our customers. Support is available Monday-Friday, 9am-6pm PST via phone, email, and live chat."
+      question: "How accurate are the restoration plans for classic bikes?",
+      answer: "Our AI analyzes your bike photos and generates detailed restoration roadmaps based on thousands of successful restorations. Plans include step-by-step instructions, estimated costs, required parts, and timeline. While every restoration is unique, our AI provides realistic expectations based on similar projects."
     },
     {
-      question: "Are you open to partnership opportunities?",
-      answer: "We're always interested in exploring partnerships with innovative companies. Please select 'Partnership opportunities' in the contact form to start the conversation."
+      question: "Are the parts and sellers on the marketplace verified?",
+      answer: "Absolutely. Every seller goes through a verification process, and all parts are checked for authenticity. We maintain a rating system where buyers can review their purchases, helping you make informed decisions. Our marketplace is trusted by thousands of riders worldwide."
     },
     {
-      question: "What information should I include in my message?",
-      answer: "Please provide your name, company details, and a brief description of your inquiry. The more specific you are, the better we can assist you."
+      question: "Do I need technical expertise to use the platform?",
+      answer: "Not at all! The Modern Garage is designed for everyone—from beginners to experienced mechanics. Our AI chatbot provides guidance at every step, explaining technical terms and offering recommendations based on your skill level and goals. Whether you're just exploring ideas or planning a complete build, we make it accessible."
     }
   ];
   
@@ -106,7 +106,7 @@ const FAQSection = () => {
               Frequently Asked Questions
             </h2>
             <p className="text-lg sm:text-xl text-gray-600">
-              Quick answers to common questions about contacting us
+              Everything you need to know about The Modern Garage
             </p>
           </div>
           

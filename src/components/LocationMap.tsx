@@ -15,7 +15,7 @@ const LocationMap = () => {
               Come Visit Our Office
             </h2>
             <p className="text-lg sm:text-xl text-gray-600">
-              Schedule a tour and see Atlas in action
+              Schedule a tour to experience the Modern Garage in action
             </p>
           </div>
           
@@ -26,11 +26,11 @@ const LocationMap = () => {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center p-8">
                   <MapPin className="w-16 h-16 text-pulse-500 mx-auto mb-4" />
-                  <h3 className="text-xl font-display font-semibold mb-2">Atlas Robotics HQ</h3>
+                  <h3 className="text-xl font-display font-semibold mb-2">Modern Garage</h3>
                   <p className="text-gray-600 mb-4">
                     123 Innovation Drive<br />
-                    Tech Valley, CA 94000<br />
-                    United States
+                    Mumbai, Maharashtar<br />
+                    India
                   </p>
                   <a 
                     href="https://maps.google.com" 

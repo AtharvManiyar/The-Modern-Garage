@@ -30,12 +30,15 @@ const FooterBrand = () => {
             <div
               style={{
                 overflow: "hidden",
-                maxHeight: "80px",
-                marginTop: "40px",
+                maxHeight: "100px",
+                marginTop: "100px",
               }}
             >
               <h2
-                style={{ marginBottom: "-30px", padding: "0px 0px 100px" }}
+                style={{
+                  transform: "translateY(-6px)",
+                  padding: "0px 0px 100px",
+                }}
                 className="text-5xl sm:text-6xl md:text-7xl lg:text-7xl font-serif text-white italic mt-0 mx-0 font-light py-0 px-0 text-center"
               >
                 Built By Riders, For Riders
@@ -43,7 +46,7 @@ const FooterBrand = () => {
             </div>
 
             {/* White box at the bottom */}
-            <div className="w-[120%] bg-white h-10 rounded-t-lg absolute left-[-10%] bottom-0"></div>
+            <div className="w-[120%] bg-white h-10 rounded-t-lg absolute left-[-10%] bottom-0 "></div>
           </div>
         </div>
       </div>

@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import AboutHero from "./AboutHero";
+import AboutCTA from "./AboutCTA";
+import ContactHero from "./ContactHero";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,7 +41,7 @@ const Navbar = () => {
     }
   };
 
-  // Disable redirect for all pages except Home
+  // // Disable redirect for all pages except Home
   const disable = (e) => e.preventDefault();
 
   return (
@@ -69,11 +72,11 @@ const Navbar = () => {
             Home
           </Link>
 
-          <Link to="/about" className="nav-link" onClick={disable}>
+          <Link to="/about" className="nav-link" onClick={AboutCTA}>
             About
           </Link>
 
-          <Link to="/contact" className="nav-link" onClick={disable}>
+          <Link to="/contact" className="nav-link" onClick={ContactHero}>
             Contact
           </Link>
 
@@ -123,7 +126,7 @@ const Navbar = () => {
           <Link
             to="/about"
             className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
-            onClick={disable}
+            onClick={AboutHero}
           >
             About
           </Link>
@@ -131,7 +134,7 @@ const Navbar = () => {
           <Link
             to="/contact"
             className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
-            onClick={disable}
+            onClick={ContactHero}
           >
             Contact
           </Link>

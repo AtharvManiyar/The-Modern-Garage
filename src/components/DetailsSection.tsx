@@ -54,7 +54,7 @@ const DetailsContactSection = () => {
                 Everything you need for your perfect ride
               </h3>
 
-              <div className="space-y-4 sm:space-y-6">
+              <div className="space-y-4 sm:space-y-6 ">
                 <div className="flex items-start gap-3">
                   <div className="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center mt-1 flex-shrink-0">
                     <svg

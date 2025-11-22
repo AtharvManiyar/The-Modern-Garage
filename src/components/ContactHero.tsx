@@ -15,12 +15,13 @@ const ContactHero = () => {
         {/* Hero Content */}
         <div className="max-w-4xl animate-fade-in" style={{ animationDelay: "0.2s" }}>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6 sm:mb-8 leading-tight">
-            Let's Start a
-            <span className="block text-pulse-500">Conversation</span>
+            Let's Build Your
+            <span className="block text-pulse-500">Dream Bike Together</span>
           </h1>
           <p className="text-lg sm:text-xl md:text-2xl text-gray-600 leading-relaxed max-w-3xl">
-            Whether you're curious about Atlas, need a demo, or want to explore partnership 
-            opportunities—we're here to help. Reach out and let's build the future together.
+            Have questions about AI visualization, need help finding parts, or want to discuss 
+            a custom build? Our team of bike enthusiasts is here to help you transform your 
+            vision into reality.
           </p>
         </div>
       </div>

@@ -21,11 +21,7 @@ const ContactForm = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-
-    // Simple validation
+  const handleSubmit = () => {
     if (!formData.fullName || !formData.email || !formData.message) {
       toast.error("Please fill in all required fields");
       setIsLoading(false);
@@ -109,7 +105,7 @@ const ContactForm = () => {
                       name="email" 
                       value={formData.email} 
                       onChange={handleChange} 
-                      placeholder="john@company.com" 
+                      placeholder="john@example.com" 
                       className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent transition-all"
                       required 
                     />
@@ -126,21 +122,21 @@ const ContactForm = () => {
                       name="phone" 
                       value={formData.phone} 
                       onChange={handleChange} 
-                      placeholder="+1 (555) 000-0000" 
+                      placeholder="+91 12345 67890" 
                       className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent transition-all"
                     />
                   </div>
                   
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Company
+                      Bike Model
                     </label>
                     <input 
                       type="text" 
                       name="company" 
                       value={formData.company} 
                       onChange={handleChange} 
-                      placeholder="Company name" 
+                      placeholder="e.g., Harley Davidson Street 750" 
                       className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent transition-all"
                     />
                   </div>
@@ -157,10 +153,11 @@ const ContactForm = () => {
                     className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent transition-all bg-white"
                   >
                     <option value="">Select an option</option>
-                    <option value="demo">Requesting a demo</option>
-                    <option value="partnership">Partnership opportunities</option>
-                    <option value="support">Technical support</option>
-                    <option value="sales">Sales inquiry</option>
+                    <option value="ai-visualization">AI Visualization Demo</option>
+                    <option value="parts-marketplace">Parts & Marketplace</option>
+                    <option value="restoration">Classic Bike Restoration</option>
+                    <option value="custom-build">Custom Build Consultation</option>
+                    <option value="technical-support">Technical Support</option>
                     <option value="other">Other</option>
                   </select>
                 </div>
@@ -173,7 +170,7 @@ const ContactForm = () => {
                     name="message" 
                     value={formData.message} 
                     onChange={handleChange} 
-                    placeholder="Tell us more about your inquiry..." 
+                    placeholder="Tell us about your bike project or any questions you have..." 
                     rows={6}
                     className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-pulse-500 focus:border-transparent transition-all resize-none"
                     required 

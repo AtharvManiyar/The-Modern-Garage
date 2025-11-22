@@ -53,20 +53,20 @@ const ContactInfo = () => {
     {
       icon: Mail,
       title: "Email Us",
-      content: "support@atlasrobotics.com",
+      content: "moderngarage@gmail.com",
       details: "We'll respond within 24 hours"
     },
     {
       icon: Phone,
       title: "Call Us",
-      content: "+1 (555) 123-4567",
+      content: "+91 12345-67890",
       details: "Mon-Fri from 9am to 6pm PST"
     },
     {
       icon: MapPin,
       title: "Visit Us",
-      content: "123 Innovation Drive, Tech Valley, CA 94000",
-      details: "United States"
+      content: "123 Innovation Drive, Mumbai, Maharashtra",
+      details: "Mumbai, India"
     },
     {
       icon: Clock,
