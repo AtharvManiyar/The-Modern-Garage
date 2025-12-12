@@ -1,25 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import AboutHero from "./AboutHero";
-import AboutCTA from "./AboutCTA";
-import ContactHero from "./ContactHero";
-import Chat from "@/pages/Chat";
-import ModernStore from "@/pages/ModernStore";
-import MarketPlace from "@/pages/MarketPlace";
-
+import BIkeSell from "./BIkeSell";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMarketplaceOpen, setIsMarketplaceOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
+    const handleScroll = () => setIsScrolled(window.scrollY > 10);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -34,72 +26,81 @@ const Navbar = () => {
     document.body.style.overflow = "";
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-
-    if (isMenuOpen) {
-      closeMenu();
-    }
-  };
-
-  // // Disable redirect for all pages except Home
   const disable = (e) => e.preventDefault();
 
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 py-2 sm:py-3 md:py-4 transition-all duration-300",
-        isScrolled
-          ? "bg-white backdrop-blur-md shadow-sm"
-          : "bg-white backdrop-blur-md"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        isScrolled ? "bg-white shadow-md" : "bg-white"
       )}
     >
-      <div className="container flex items-center justify-between px-4 sm:px-6 lg:px-8">
-        <a
-          href="#"
-          className="flex items-center space-x-2"
-          onClick={(e) => {
-            e.preventDefault();
-            scrollToTop();
-          }}
-          aria-label="Pulse Robot"
-        >
-          <img src="/logo.jpg" alt="Pulse Robot Logo" className="h-7 sm:h-10" />
-        </a>
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3">
+        
+        {/* Logo */}
+        <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+          <img src="/logo.jpg" alt="Logo" className="h-8 sm:h-10" />
+        </button>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
-          <Link to="/" className="nav-link">
-            Home
-          </Link>
-
-          <Link to="/about" className="nav-link" onClick={AboutCTA}>
-            About
-          </Link>
-
-          <Link to="/contact" className="nav-link" onClick={ContactHero}>
-            Contact
-          </Link>
-
-          <Link to="/chat" className="nav-link" onClick={disable}>
+        <nav className="hidden md:flex items-center space-x-8">
+          <Link className="nav-link" to="/">Home</Link>
+          <Link className="nav-link" to="/about">About</Link>
+          <Link className="nav-link" to="/contact">Contact</Link>
+          <Link className="nav-link" to="/chat" onClick={disable}>
             Image Generation
           </Link>
 
-          <Link to="/marketplace" className="nav-link" onClick={MarketPlace}>
-            Marketplace
-          </Link>
+          {/* Marketplace Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setIsMarketplaceOpen(true)}
+            onMouseLeave={() => setIsMarketplaceOpen(false)}
+          >
+            <button className="nav-link flex items-center gap-1">
+              Marketplace
+              <ChevronDown
+                className={cn(
+                  "w-4 h-4 transition-transform",
+                  isMarketplaceOpen && "rotate-180"
+                )}
+              />
+            </button>
 
-          <Link to="/modern-store" className="nav-link" onClick={ModernStore}>
-            Modern Store
-          </Link>
+            {/* Dropdown */}
+            <div
+              className={cn(
+                "absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg transition-all duration-200",
+                isMarketplaceOpen
+                  ? "opacity-100 visible translate-y-0"
+                  : "opacity-0 invisible -translate-y-2"
+              )}
+            >
+              <Link
+                to="/marketplace/buy"
+                className="block px-4 py-3 hover:bg-gray-50"
+              >
+                <div className="font-medium">🏍️ Buy Bike</div>
+                <p className="text-xs text-gray-500">Browse marketplace</p>
+              </Link>
+
+              <div className="h-px bg-gray-200" />
+
+              <Link
+                to="/marketplace/sell"
+                className="block px-4 py-3 hover:bg-gray-50"
+                onClick={BIkeSell}
+              >
+                <div className="font-medium">💰 Sell Bike</div>
+                <p className="text-xs text-gray-500">List your bike</p>
+              </Link>
+            </div>
+          </div>
+
+          <Link className="nav-link" to="/modern-store">Modern Store</Link>
 
           <Link to="/login" onClick={disable}>
-            <Button variant="ghost" size="sm">
-              Login
-            </Button>
+            <Button variant="ghost" size="sm">Login</Button>
           </Link>
 
           <Link to="/signup" onClick={disable}>
@@ -107,88 +108,50 @@ const Navbar = () => {
           </Link>
         </nav>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-gray-700 p-3 focus:outline-none"
-          onClick={toggleMenu}
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-        >
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        {/* Mobile Button */}
+        <button className="md:hidden text-gray-700" onClick={toggleMenu}>
+          {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-white flex flex-col pt-16 px-6 md:hidden transition-all duration-300 ease-in-out overflow-y-auto",
+          "fixed inset-0 z-40 bg-white pt-20 px-8 flex flex-col items-center space-y-6 md:hidden transition-all duration-300",
           isMenuOpen
-            ? "opacity-100 translate-x-0 h-screen"
+            ? "opacity-100 translate-x-0"
             : "opacity-0 translate-x-full pointer-events-none"
         )}
       >
-        <nav className="flex flex-col space-y-6 items-center mt-8 pb-8">
-          <Link
-            to="/"
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
-            onClick={closeMenu}
-          >
-            Home
+        <Link className="mobile-link" to="/" onClick={closeMenu}>Home</Link>
+        <Link className="mobile-link" to="/about" onClick={closeMenu}>About</Link>
+        <Link className="mobile-link" to="/contact" onClick={closeMenu}>Contact</Link>
+
+        <Link className="mobile-link" to="/chat" onClick={disable}>
+          Image Generation
+        </Link>
+
+        <Link className="mobile-link" to="/marketplace/buy" onClick={closeMenu}>
+          🏍️ Buy Bike
+        </Link>
+
+        <Link className="mobile-link" to="/marketplace/sell" onClick={BIkeSell}>
+          💰 Sell Bike
+        </Link>
+
+        <Link className="mobile-link" to="/modern-store" onClick={closeMenu}>
+          Modern Store
+        </Link>
+
+        {/* Buttons */}
+        <div className="w-full flex flex-col gap-4 mt-4">
+          <Link to="/login" onClick={disable}>
+            <Button variant="ghost" className="w-full">Login</Button>
           </Link>
-
-          <Link
-            to="/about"
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
-            onClick={AboutHero}
-          >
-            About
+          <Link to="/signup" onClick={disable}>
+            <Button className="w-full">Sign Up</Button>
           </Link>
-
-          <Link
-            to="/contact"
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
-            onClick={ContactHero}
-          >
-            Contact
-          </Link>
-
-          <Link
-            to="/chat"
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
-            onClick={disable}
-          >
-            Image Generation
-          </Link>
-
-          { <Link
-            to="/email"
-            className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
-            onClick={MarketPlace}
-          >
-            Market Place
-          </Link> }
-
-          {<Link
-            to="/admin"
-            className="text-xl font-bold py-3 px-6 w-full text-center rounded-lg hover:bg-primary/10 text-primary"
-            onClick={ModernStore}
-          >
-            🎯 Modern Store
-          </Link>}
-
-          
-
-          <div className="flex flex-col space-y-4 w-full mt-4">
-            <Link to="/login" onClick={disable}>
-              <Button variant="ghost" className="w-full">
-                Login
-              </Button>
-            </Link>
-
-            <Link to="/signup" onClick={disable}>
-              <Button className="w-full">Sign Up</Button>
-            </Link>
-          </div>
-        </nav>
+        </div>
       </div>
     </header>
   );
