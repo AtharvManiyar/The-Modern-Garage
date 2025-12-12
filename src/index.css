@@ -221,3 +221,13 @@
   transform: translateY(var(--parallax-y, 0));
   transition: transform 0.1s ease-out;
 }
+
+
+/*Sell Bike CSS*/
+.input-orange-white {
+  @apply w-full p-3 rounded-xl 
+         bg-white text-gray-700
+         border border-orange-300 
+         focus:border-orange-500 focus:ring-2 focus:ring-orange-400
+         outline-none transition-all;
+}
