@@ -32,12 +32,13 @@ const MissionVision = () => {
             
             <div className="bg-white p-6 sm:p-8" style={{ border: "1px solid #ECECEC" }}>
               <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-4">
-                To democratize advanced robotics and AI technology, making it accessible, 
-                intuitive, and beneficial for everyone.
+                To democratize bike customization through AI technology, making professional-grade 
+                visualization and expert guidance accessible to every rider.
               </p>
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                We believe that the future of work isn't about automation replacing humans—it's 
-                about creating intelligent tools that amplify human creativity, productivity, and potential.
+                We believe every rider deserves to see their vision come to life before investing 
+                in parts and modifications. Our AI-powered platform bridges the gap between 
+                imagination and reality, empowering riders to make confident customization decisions.
               </p>
             </div>
           </div>
@@ -60,12 +61,13 @@ const MissionVision = () => {
             
             <div className="bg-white p-6 sm:p-8" style={{ border: "1px solid #ECECEC" }}>
               <p className="text-gray-700 text-base sm:text-lg leading-relaxed mb-4">
-                A world where humanoid robots are seamless partners in homes, workplaces, 
-                and communities around the globe.
+                A world where every rider can transform their bike into a unique masterpiece, 
+                with AI as their creative partner and guide.
               </p>
               <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                We envision a future where technology adapts to human needs, not the other way around. 
-                Where every interaction feels natural, intuitive, and genuinely helpful.
+                We envision a future where bike customization is no longer intimidating or expensive. 
+                Where riders can explore modifications risk-free, find rare parts effortlessly, and 
+                restore classics with confidence—all powered by intelligent technology.
               </p>
             </div>
           </div>

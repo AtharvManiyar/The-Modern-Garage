@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import HumanoidSection from "@/components/HumanoidSection";
@@ -10,8 +10,17 @@ import Testimonials from "@/components/Testimonials";
 import Newsletter from "@/components/Newsletter";
 import MadeByHumans from "@/components/MadeByHumans";
 import Footer from "@/components/Footer";
+import Loading from "@/components/Loading";
 
 const Index = () => {
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() =>{
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000)
+  }, [])
   // Initialize intersection observer to detect when elements enter viewport
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -58,7 +67,9 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <>
+      {loading ? <Loading /> :
+      <div className="min-h-screen">
       <Navbar />
       <main className="space-y-4 sm:space-y-8">
         {" "}
@@ -75,6 +86,9 @@ const Index = () => {
       </main>
       <Footer />
     </div>
+    
+    }
+    </>
   );
 };
 

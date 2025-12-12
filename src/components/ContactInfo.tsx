@@ -62,12 +62,7 @@ const ContactInfo = () => {
       content: "+91 12345-67890",
       details: "Mon-Fri from 9am to 6pm PST"
     },
-    {
-      icon: MapPin,
-      title: "Visit Us",
-      content: "123 Innovation Drive, Mumbai, Maharashtra",
-      details: "Mumbai, India"
-    },
+    
     {
       icon: Clock,
       title: "Business Hours",
@@ -92,7 +87,7 @@ const ContactInfo = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-8xl mx-auto">
           {contactDetails.map((detail, index) => (
             <InfoCard
               key={index}

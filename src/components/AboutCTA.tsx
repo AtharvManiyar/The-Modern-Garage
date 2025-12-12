@@ -26,12 +26,12 @@ const AboutCTA = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Link to="/signup">
+                <Link to="disable">
                   <button className="w-full sm:w-auto px-8 py-4 bg-white text-pulse-500 font-semibold rounded-full hover:bg-gray-100 transition-colors duration-300 shadow-lg">
                     Get Started Free
                   </button>
                 </Link>
-                <Link to="/contact">
+                <Link to="disable">
                   <button className="w-full sm:w-auto px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 transition-colors duration-300">
                     Talk to Our Team
                   </button>
