@@ -14,8 +14,21 @@ import EmailPage from "./pages/EmailPage";
 import AdminDashboard from "./components/AdminDashboard";
 import DataDisplay from "./components/DataDisplay";
 import NotFound from "./pages/NotFound";
+import ModernStore from "./pages/ModernStore";
+import HelmetsCards from "./components/HelmetsCards";
+import RidingGearsCards from "../public/RidingGearsCards";
+import LEDcards from "./components/LEDcards";
+import FogLightMS from "./components/FogLightMS";
+import TailLightMS from "./components/TailLightMS";
+import IndicatorMS from "./components/IndicatorMS";
+import CrashGuardMS from "./components/CrashGuardMS";
+import SideMirrorMS from "./components/SideMirrorSM";
+import ExhaustSystemMS from "./components/ExhaustSystemMS";
+import AlloyStickerMS from "./components/AlloyStickerMS";
+import MarketPlace from "./pages/MarketPlace";
 
 const queryClient = new QueryClient();
+
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -30,10 +43,24 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/chat" element={<Chat />} />
-          <Route path="/gallery" element={<Gallery />} />
+          {/* <Route path="/gallery" element={<Gallery />} /> */}
           <Route path="/email" element={<EmailPage />} />
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/display" element={<DataDisplay />} />
+          {/* MS */}
+          <Route path="/modern-store" element={<ModernStore />} />
+          <Route path="/modern-store/helmets" element={<HelmetsCards />}/>
+          <Route path="/modern-store/riding-gears" element={<RidingGearsCards />}/>
+          <Route path="/modern-store/led-headlight" element={<LEDcards />}/>
+          <Route path="/modern-store/fog-lamps" element={<FogLightMS />}/>
+          <Route path="/modern-store/taillight" element={<TailLightMS />}/>
+          <Route path="/modern-store/indicators" element={<IndicatorMS />}/>
+          <Route path="/modern-store/crash-guards" element={<CrashGuardMS />}/>
+          <Route path="/modern-store/side-mirrors" element={<SideMirrorMS />}/>
+          <Route path="/modern-store/exhaust" element={<ExhaustSystemMS />}/>
+          <Route path="/modern-store/stickers" element={<AlloyStickerMS />}/>
+
+          <Route path="/marketplace" element={<MarketPlace />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

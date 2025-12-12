@@ -7,6 +7,9 @@ import AboutHero from "./AboutHero";
 import AboutCTA from "./AboutCTA";
 import ContactHero from "./ContactHero";
 import Chat from "@/pages/Chat";
+import ModernStore from "@/pages/ModernStore";
+import MarketPlace from "@/pages/MarketPlace";
+
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -81,8 +84,16 @@ const Navbar = () => {
             Contact
           </Link>
 
-          <Link to="/chat" className="nav-link" onClick={Chat}>
+          <Link to="/chat" className="nav-link" onClick={disable}>
             Image Generation
+          </Link>
+
+          <Link to="/marketplace" className="nav-link" onClick={MarketPlace}>
+            Marketplace
+          </Link>
+
+          <Link to="/modern-store" className="nav-link" onClick={ModernStore}>
+            Modern Store
           </Link>
 
           <Link to="/login" onClick={disable}>
@@ -111,7 +122,7 @@ const Navbar = () => {
         className={cn(
           "fixed inset-0 z-40 bg-white flex flex-col pt-16 px-6 md:hidden transition-all duration-300 ease-in-out overflow-y-auto",
           isMenuOpen
-            ? "opacity-100 translate-x-0"
+            ? "opacity-100 translate-x-0 h-screen"
             : "opacity-0 translate-x-full pointer-events-none"
         )}
       >
@@ -145,32 +156,26 @@ const Navbar = () => {
             className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
             onClick={disable}
           >
-            AI Chat
+            Image Generation
           </Link>
 
-          <Link
+          { <Link
             to="/email"
             className="text-xl font-medium py-3 px-6 w-full text-center rounded-lg hover:bg-gray-100"
-            onClick={disable}
+            onClick={MarketPlace}
           >
-            Email
-          </Link>
+            Market Place
+          </Link> }
 
-          <Link
+          {<Link
             to="/admin"
             className="text-xl font-bold py-3 px-6 w-full text-center rounded-lg hover:bg-primary/10 text-primary"
-            onClick={disable}
+            onClick={ModernStore}
           >
-            🎯 Admin Dashboard
-          </Link>
+            🎯 Modern Store
+          </Link>}
 
-          <Link
-            to="/display"
-            className="text-xl font-bold py-3 px-6 w-full text-center rounded-lg hover:bg-primary/10 text-primary"
-            onClick={disable}
-          >
-            📊 Data Display
-          </Link>
+          
 
           <div className="flex flex-col space-y-4 w-full mt-4">
             <Link to="/login" onClick={disable}>

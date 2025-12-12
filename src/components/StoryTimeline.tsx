@@ -29,9 +29,9 @@ const TimelineItem = ({ year, title, description, index, isLast }) => {
   }, []);
   
   return (
-    <div 
+     <div 
       ref={itemRef}
-      className={`relative flex gap-6 sm:gap-8 pb-12 ${!isLast ? 'border-l-2 border-gray-200 ml-3 sm:ml-4' : ''}`}
+      className={`relative flex gap-6 sm:gap-8 pb-12 border-l-2 ml-3 sm:ml-4 ${!isLast ? 'border-gray-200' : 'border-transparent'}`}
     >
       {/* Timeline Dot */}
       <div 
@@ -59,34 +59,34 @@ const TimelineItem = ({ year, title, description, index, isLast }) => {
 const StoryTimeline = () => {
   const timeline = [
     {
-      year: "2020",
-      title: "The Beginning",
-      description: "Founded with a vision to bridge the gap between humans and AI. Started research on adaptive learning systems."
-    },
-    {
-      year: "2021",
-      title: "First Prototype",
-      description: "Developed our first humanoid prototype with basic movement and interaction capabilities."
-    },
-    {
-      year: "2022",
-      title: "AI Integration",
-      description: "Successfully integrated advanced AI models, enabling natural language understanding and adaptive behavior."
-    },
-    {
       year: "2023",
-      title: "Beta Launch",
-      description: "Launched beta program with select partners across manufacturing, healthcare, and hospitality sectors."
+      title: "The Idea Sparks",
+      description: "Founded by two passionate riders frustrated with the uncertainty of bike modifications. Started developing AI visualization technology to help riders see parts before buying."
     },
     {
       year: "2024",
-      title: "Global Expansion",
-      description: "Expanded operations to 15 countries, serving over 500 enterprises worldwide."
+      title: "First AI Prototype",
+      description: "Launched our first AI visualization engine capable of rendering basic modifications on bike photos. Early beta testers loved seeing their ideas come to life."
+    },
+    {
+      year: "2024",
+      title: "Marketplace Launch",
+      description: "Partnered with verified sellers to create a trusted parts marketplace with 5,000+ components. Integrated real-time inventory and pricing."
+    },
+    {
+      year: "2024",
+      title: "Restoration AI",
+      description: "Introduced AI-powered restoration planning for classic bikes, generating detailed roadmaps with cost estimates and step-by-step guidance."
     },
     {
       year: "2025",
-      title: "Atlas Release",
-      description: "Introduced Atlas, our most advanced humanoid robot with unprecedented dexterity and intelligence."
+      title: "Community Growth",
+      description: "Reached 50,000 active riders using the platform. Expanded marketplace to 10,000+ parts across all major bike brands and models."
+    },
+    {
+      year: "2025",
+      title: "The Future Begins",
+      description: "Launching advanced AI chatbot for personalized recommendations and real-time modification advice. Building the largest community of custom bike enthusiasts."
     }
   ];
   
@@ -101,10 +101,10 @@ const StoryTimeline = () => {
               <span>Our Journey</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4">
-              The Story Behind Atlas
+              Built By Riders, For Riders
             </h2>
             <p className="text-lg sm:text-xl text-gray-600">
-              From a bold idea to a revolutionary reality
+              From a simple idea to a revolutionary platform
             </p>
           </div>
           

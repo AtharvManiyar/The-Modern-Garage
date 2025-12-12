@@ -99,7 +99,7 @@ const FAQSection = () => {
           {/* Header */}
           <div className="text-center mb-10 sm:mb-16">
             <div className="pulse-chip mx-auto mb-4">
-              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-500 text-white mr-2">05</span>
+              <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-pulse-500 text-white mr-2">04</span>
               <span>FAQ</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4">

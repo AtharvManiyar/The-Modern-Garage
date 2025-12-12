@@ -50,32 +50,32 @@ const ValuesSection = () => {
     {
       icon: Zap,
       title: "Innovation First",
-      description: "We constantly push the boundaries of what's possible with AI and robotics, pioneering new solutions that transform industries."
+      description: "We constantly push the boundaries of AI technology to deliver cutting-edge visualization and customization tools that transform how riders build their dream bikes."
     },
     {
       icon: Users,
-      title: "Human-Centric Design",
-      description: "Every feature we build is designed with our users' needs at the forefront, ensuring intuitive and meaningful interactions."
+      title: "Rider-Centric Design",
+      description: "Every feature we build is designed with riders in mind, ensuring intuitive experiences whether you're a beginner exploring mods or a pro restoring a classic."
     },
     {
       icon: Target,
-      title: "Results Driven",
-      description: "We focus on delivering tangible value and measurable outcomes that make a real difference in people's lives."
+      title: "Accuracy Matters",
+      description: "Our AI delivers realistic visualizations and reliable part recommendations, helping you make confident decisions before spending a single dollar."
     },
     {
       icon: Award,
-      title: "Excellence",
-      description: "Quality and reliability are at the core of everything we create, from hardware to software to support."
+      title: "Quality Marketplace",
+      description: "We partner only with verified sellers and authentic parts suppliers, ensuring every component you find meets the highest standards."
     },
     {
       icon: Heart,
-      title: "Ethical AI",
-      description: "We're committed to developing AI that is transparent, fair, and respects human dignity and privacy."
+      title: "Passion for Bikes",
+      description: "We're riders ourselves. We understand the thrill of customization and the pride of owning a unique machine that reflects your personality."
     },
     {
       icon: Shield,
-      title: "Safety First",
-      description: "Safety protocols and fail-safes are built into every system, ensuring secure operation in all environments."
+      title: "Trust & Transparency",
+      description: "From seller ratings to honest pricing, we maintain complete transparency so you can shop, customize, and build with confidence."
     }
   ];
   
@@ -91,7 +91,7 @@ const ValuesSection = () => {
             What Drives Us Forward
           </h2>
           <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto opacity-0 animate-fade-in" style={{ animationDelay: "0.2s" }}>
-            Our core principles guide every decision we make and every product we build.
+            Our core principles guide every decision we make and every feature we build.
           </p>
         </div>
         
