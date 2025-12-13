@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import BIkeSell from "./BIkeSell";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,32 +25,32 @@ const Navbar = () => {
     document.body.style.overflow = "";
   };
 
-  const disable = (e) => e.preventDefault();
-
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         isScrolled ? "bg-white shadow-md" : "bg-white"
       )}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3">
-        
-        {/* Logo */}
-        <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-          <img src="/logo.jpg" alt="Logo" className="h-8 sm:h-10" />
-        </button>
+      {/* NAVBAR */}
+      <div className="max-w-7xl mx-auto flex items-center h-16 px-6">
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-8">
+        {/* LOGO (LEFT) */}
+        <Link to="/" className="flex items-center">
+          <img src="/logo.jpg" alt="Logo" className="h-9 w-auto" />
+        </Link>
+
+        {/* PUSH LINKS RIGHT */}
+        <div className="flex-1" />
+
+        {/* DESKTOP NAV */}
+        <nav className="hidden md:flex items-center gap-8">
           <Link className="nav-link" to="/">Home</Link>
           <Link className="nav-link" to="/about">About</Link>
           <Link className="nav-link" to="/contact">Contact</Link>
-          <Link className="nav-link" to="/chat" onClick={disable}>
-            Image Generation
-          </Link>
+          <Link className="nav-link" to="/chat">Image Generation</Link>
 
-          {/* Marketplace Dropdown */}
+          {/* MARKETPLACE */}
           <div
             className="relative"
             onMouseEnter={() => setIsMarketplaceOpen(true)}
@@ -61,16 +60,16 @@ const Navbar = () => {
               Marketplace
               <ChevronDown
                 className={cn(
-                  "w-4 h-4 transition-transform",
+                  "h-4 w-4 transition-transform",
                   isMarketplaceOpen && "rotate-180"
                 )}
               />
             </button>
 
-            {/* Dropdown */}
+            {/* DROPDOWN */}
             <div
               className={cn(
-                "absolute top-full left-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg transition-all duration-200",
+                "absolute right-0 mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg transition-all duration-200",
                 isMarketplaceOpen
                   ? "opacity-100 visible translate-y-0"
                   : "opacity-0 invisible -translate-y-2"
@@ -81,7 +80,9 @@ const Navbar = () => {
                 className="block px-4 py-3 hover:bg-gray-50"
               >
                 <div className="font-medium">🏍️ Buy Bike</div>
-                <p className="text-xs text-gray-500">Browse marketplace</p>
+                <p className="text-xs text-gray-500">
+                  Browse available bikes
+                </p>
               </Link>
 
               <div className="h-px bg-gray-200" />
@@ -89,70 +90,99 @@ const Navbar = () => {
               <Link
                 to="/marketplace/sell"
                 className="block px-4 py-3 hover:bg-gray-50"
-                onClick={BIkeSell}
               >
                 <div className="font-medium">💰 Sell Bike</div>
-                <p className="text-xs text-gray-500">List your bike</p>
+                <p className="text-xs text-gray-500">
+                  List your bike for sale
+                </p>
               </Link>
             </div>
           </div>
 
-          <Link className="nav-link" to="/modern-store">Modern Store</Link>
+          <Link className="nav-link" to="/modern-store">
+            Modern Store
+          </Link>
 
-          <Link to="/login" onClick={disable}>
+          <Link to="/login">
             <Button variant="ghost" size="sm">Login</Button>
           </Link>
 
-          <Link to="/signup" onClick={disable}>
+          <Link to="/signup">
             <Button size="sm">Sign Up</Button>
           </Link>
         </nav>
 
-        {/* Mobile Button */}
-        <button className="md:hidden text-gray-700" onClick={toggleMenu}>
-          {isMenuOpen ? <X size={26} /> : <Menu size={26} />}
+        {/* MOBILE MENU BUTTON */}
+        <button className="md:hidden ml-auto" onClick={toggleMenu}>
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      <div
+      {/* MOBILE OVERLAY */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black/50 md:hidden"
+          onClick={closeMenu}
+        />
+      )}
+
+      {/* MOBILE MENU */}
+      <aside
         className={cn(
-          "fixed inset-0 z-40 bg-white pt-20 px-8 flex flex-col items-center space-y-6 md:hidden transition-all duration-300",
-          isMenuOpen
-            ? "opacity-100 translate-x-0"
-            : "opacity-0 translate-x-full pointer-events-none"
+          "fixed top-0 right-0 z-50 h-full w-72 bg-white p-6 transition-transform md:hidden",
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <Link className="mobile-link" to="/" onClick={closeMenu}>Home</Link>
-        <Link className="mobile-link" to="/about" onClick={closeMenu}>About</Link>
-        <Link className="mobile-link" to="/contact" onClick={closeMenu}>Contact</Link>
+        <button className="mb-6" onClick={closeMenu}>
+          <X size={24} />
+        </button>
 
-        <Link className="mobile-link" to="/chat" onClick={disable}>
-          Image Generation
-        </Link>
+        <nav className="flex flex-col gap-4">
+          <Link to="/" onClick={closeMenu}>Home</Link>
+          <Link to="/about" onClick={closeMenu}>About</Link>
+          <Link to="/contact" onClick={closeMenu}>Contact</Link>
+          <Link to="/chat" onClick={closeMenu}>Image Generation</Link>
 
-        <Link className="mobile-link" to="/marketplace/buy" onClick={closeMenu}>
-          🏍️ Buy Bike
-        </Link>
+          <Link
+            to="/marketplace/buy"
+            onClick={closeMenu}
+            className="rounded-lg px-2 py-2 hover:bg-gray-100"
+          >
+            <div className="flex flex-col">
+              <span className="font-medium">🏍️ Buy Bike</span>
+              <span className="text-xs text-gray-500">
+                Browse available bikes
+              </span>
+            </div>
+          </Link>
 
-        <Link className="mobile-link" to="/marketplace/sell" onClick={BIkeSell}>
-          💰 Sell Bike
-        </Link>
+          <Link
+            to="/marketplace/sell"
+            onClick={closeMenu}
+            className="rounded-lg px-2 py-2 hover:bg-gray-100"
+          >
+            <div className="flex flex-col">
+              <span className="font-medium">💰 Sell Bike</span>
+              <span className="text-xs text-gray-500">
+                List your bike for sale
+              </span>
+            </div>
+          </Link>
 
-        <Link className="mobile-link" to="/modern-store" onClick={closeMenu}>
-          Modern Store
-        </Link>
+          <Link to="/modern-store" onClick={closeMenu}>
+            Modern Store
+          </Link>
+        </nav>
 
-        {/* Buttons */}
-        <div className="w-full flex flex-col gap-4 mt-4">
-          <Link to="/login" onClick={disable}>
+        <div className="mt-6 flex flex-col gap-3">
+          <Link to="/login" onClick={closeMenu}>
             <Button variant="ghost" className="w-full">Login</Button>
           </Link>
-          <Link to="/signup" onClick={disable}>
+          <Link to="/signup" onClick={closeMenu}>
             <Button className="w-full">Sign Up</Button>
           </Link>
         </div>
-      </div>
+      </aside>
     </header>
   );
 };
