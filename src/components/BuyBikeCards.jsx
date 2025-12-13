@@ -6,8 +6,6 @@ function BuyBikeCards() {
     <main className="pt-8 px-4 sm:px-8">
       <div className="max-w-7xl mx-auto">
         
-        <h1 className="text-3xl font-bold mb-8 text-center">Buy Bikes</h1>
-
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
           {items.map((item) => (
@@ -34,9 +32,16 @@ function BuyBikeCards() {
 
               <p className="text-gray-900 font-bold text-lg mb-4">{item.price}</p>
 
-              <button className="w-full px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg mt-auto">
-                Buy Now
-              </button>
+              <div className="mt-4">
+  <button
+    className="w-full px-4 py-2 rounded-xl
+               bg-orange-500 text-white font-semibold
+               hover:bg-orange-600 transition-colors duration-200"
+  >
+    Buy Now
+  </button>
+</div>
+
             </div>
           ))}
 

@@ -7,7 +7,7 @@ const Loading = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.5 }}
       className="w-full h-screen bg-black text-orange-400 flex flex-col justify-center items-center gap-6"
     >
       {/* Title */}

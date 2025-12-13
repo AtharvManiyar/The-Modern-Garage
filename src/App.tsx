@@ -44,6 +44,7 @@ const App = () => (
           <Route path="/signup" element={<Signup />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          {/* chat page path here  */}
           <Route path="/chat" element={<Chat />} />
           {/* <Route path="/gallery" element={<Gallery />} /> */}
           <Route path="/email" element={<EmailPage />} />
