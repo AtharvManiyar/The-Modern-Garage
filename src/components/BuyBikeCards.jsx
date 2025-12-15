@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import items from "./Bbikedata";
 
 function BuyBikeCards() {
@@ -13,14 +14,16 @@ function BuyBikeCards() {
               key={item.id}
               className="bg-white rounded-xl shadow-md p-5 flex flex-col h-full hover:shadow-lg transition-shadow duration-200"
             >
-              <img
-                src={item.image}
-                alt={item.name}
-                className="w-full h-48 object-contain rounded-md mb-4 bg-gray-100 p-3"
-                loading="lazy"
-              />
+              <Link to={`/marketplace/buy/${item.id}`} className="block">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-48 object-contain rounded-md mb-4 bg-gray-100 p-3"
+                  loading="lazy"
+                />
 
-              <h3 className="font-semibold text-xl text-center mb-2">{item.name}</h3>
+                <h3 className="font-semibold text-xl text-center mb-2">{item.name}</h3>
+              </Link>
 
               <div className="space-y-1 text-gray-700 text-sm">
                 <p><span className="font-semibold">KM:</span> {item.km}</p>
@@ -32,15 +35,27 @@ function BuyBikeCards() {
 
               <p className="text-gray-900 font-bold text-lg mb-4">{item.price}</p>
 
-              <div className="mt-4">
-  <button
-    className="w-full px-4 py-2 rounded-xl
-               bg-orange-500 text-white font-semibold
-               hover:bg-orange-600 transition-colors duration-200"
-  >
-    Buy Now
-  </button>
-</div>
+              <div className="mt-4 flex gap-2">
+                <Link
+                  to={`/marketplace/buy/${item.id}`}
+                  className="flex-1 text-center px-4 py-2 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 transition-colors duration-200"
+                >
+                  View Details
+                </Link>
+
+                <button
+                  className="flex-1 px-4 py-2 rounded-xl bg-orange-500 text-white font-semibold hover:bg-orange-600 transition-colors duration-200"
+                  onClick={() => {
+                    // quick add-to-cart behavior
+                    const cur = JSON.parse(localStorage.getItem('cart') || '[]');
+                    cur.push(item);
+                    localStorage.setItem('cart', JSON.stringify(cur));
+                    alert('Added to cart');
+                  }}
+                >
+                  Add to Cart
+                </button>
+              </div>
 
             </div>
           ))}

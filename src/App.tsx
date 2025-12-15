@@ -27,6 +27,7 @@ import ExhaustSystemMS from "./components/ExhaustSystemMS";
 import AlloyStickerMS from "./components/AlloyStickerMS";
 import MarketPlace from "./pages/MarketPlace";
 import BuyBike from "./components/BuyBike";
+import BuyBikeDetails from "./components/BuyBikeDetails";
 import BIkeSell from "./components/BIkeSell";
 
 const queryClient = new QueryClient();
@@ -65,6 +66,7 @@ const App = () => (
 
           <Route path="/marketplace" element={<MarketPlace />} />
           <Route path="/marketplace/buy" element={<BuyBike />} />
+          <Route path="/marketplace/buy/:id" element={<BuyBikeDetails />} />
           <Route path="/marketplace/sell" element={<BIkeSell />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
